@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "outDir":"./dist",
+        "noImplicitAny": true,
+        "module": "es6",
+        // 以js为webpack入口文件时将不能处理为es5代码，需要使用babel
+        "target": "es5",
+        "allowJs": true,
+        "baseUrl": ".",
+        "moduleResolution": "node",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
+    },
+    "exclude": [ 
+        "node_modules",
+        "./dist/**/*",
+        "*.js"
+    ],
+}

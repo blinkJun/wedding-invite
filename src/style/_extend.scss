@@ -1,0 +1,48 @@
+%ab-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+%clearFloat{
+    &:after{
+        content:'';
+        clear: both;
+        display: block;
+    }
+}
+%ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@mixin size($width:auto,$height:auto){
+    /* 提取不是默认参数的参数 */
+    @if $width!='auto'{
+        width:$width;
+    }
+    @if $height!='auto'{
+        height:$height;
+    }
+}
+@mixin bg ($imgName,$position:center,$size:100%,$repeat:no-repeat){
+    background: url($imgurl+$imgName) $repeat $position;
+    background-size:$size;
+}
+
+@mixin fragment ($top:auto, $left:auto, $right:auto, $bottom:auto,$z-index:auto) {
+
+    $parames:top left right bottom z-index;
+    $funcParames:$top $left $right $bottom $z-index;
+
+    /* 提取不是默认参数的参数 */
+    @for $i from 1 through length($funcParames) {
+        $param:nth($funcParames, $i);
+        @if $param != 'auto'{
+            #{nth($parames,$i)}:$param;
+        }
+    }
+    position:absolute;
+}

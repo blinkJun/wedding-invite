@@ -1,0 +1,81 @@
+${{options.url}}:'{{options.picUrl}}{{spritesheet.escaped_image}}';
+
+//px转换为rem
+@function toRem($px){
+  @return $px/100px+rem;
+}
+//2倍图
+@function x2($px){
+  @return $px/2;
+}
+//3倍图
+@function x3($px){
+  @return $px/3;
+}
+
+
+//px
+{{#items}}
+  ${{name}} : {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} ${{../options.url}} ;
+{{/items}}
+
+
+
+
+
+@mixin sprite-rem($sprite) {
+  $sprite-offset-x: toRem(nth($sprite, 3));
+  $sprite-offset-y: toRem(nth($sprite, 4));
+  $sprite-width:toRem(nth($sprite, 5));
+  $sprite-height:toRem(nth($sprite, 6));
+  $sprite-size-width:toRem(nth($sprite, 7));
+  $sprite-size-height:toRem(nth($sprite, 8));
+  $sprite-image: nth($sprite, 9);
+
+  width:$sprite-width;
+  height:$sprite-height;
+  background:url(#{$sprite-image}) $sprite-offset-x  $sprite-offset-y no-repeat ;
+  background-size:$sprite-size-width $sprite-size-height;
+}
+@mixin sprite($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  $sprite-width:nth($sprite, 5);
+  $sprite-height:nth($sprite, 6);
+  $sprite-size-width:nth($sprite, 7);
+  $sprite-size-height:nth($sprite, 8);
+  $sprite-image: nth($sprite, 9);
+
+  width:$sprite-width;
+  height:$sprite-height;
+  background:url(#{$sprite-image}) $sprite-offset-x  $sprite-offset-y no-repeat ;
+  background-size:$sprite-size-width $sprite-size-height;
+}
+@mixin spriteX2($sprite) {
+  $sprite-offset-x: x2(nth($sprite, 3));
+  $sprite-offset-y: x2(nth($sprite, 4));
+  $sprite-width:x2(nth($sprite, 5));
+  $sprite-height:x2(nth($sprite, 6));
+  $sprite-size-width:x2(nth($sprite, 7));
+  $sprite-size-height:x2(nth($sprite, 8));
+  $sprite-image: nth($sprite, 9);
+
+  width:$sprite-width;
+  height:$sprite-height;
+  background:url(#{$sprite-image}) $sprite-offset-x  $sprite-offset-y no-repeat ;
+  background-size:$sprite-size-width $sprite-size-height;
+}
+@mixin spriteX3($sprite) {
+  $sprite-offset-x: x3(nth($sprite, 3));
+  $sprite-offset-y: x3(nth($sprite, 4));
+  $sprite-width:x3(nth($sprite, 5));
+  $sprite-height:x3(nth($sprite, 6));
+  $sprite-size-width:x3(nth($sprite, 7));
+  $sprite-size-height:x3(nth($sprite, 8));
+  $sprite-image: nth($sprite, 9);
+
+  width:$sprite-width;
+  height:$sprite-height;
+  background:url(#{$sprite-image}) $sprite-offset-x  $sprite-offset-y no-repeat ;
+  background-size:$sprite-size-width $sprite-size-height;
+}
