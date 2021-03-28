@@ -1,0 +1,588 @@
+@import "@/style/_root.scss";
+@import "@/style/_reset.scss";
+@import "@/style/_extend.scss";
+
+html{
+    height:100%;
+}
+body{
+    min-height: 100%;
+    background-color: #fff;
+}
+.app{
+    min-height:100%;
+    color:$primary-color;
+}
+.loading{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 100;
+    width:100%;
+    height:100%;
+    background-color: $primary-color;
+    user-select: none;
+    transition: all .2s 0s ease-out;
+    img{
+        @extend %ab-center;
+        width:70px;
+        height:70px;
+        object-fit: contain;
+        opacity: 0;
+    }
+    @keyframes showLoading {
+        0%{
+            opacity: 0;
+        }
+        6%{
+            opacity: 1;
+        }
+        10%{
+            opacity: 1;
+        }
+        12%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+    @for $i from 1 through 9 {
+        .loading-#{$i}{
+            animation: showLoading 18s #{ ($i - 1) * 2}s linear infinite;
+        }
+    }
+    &.hide{
+        pointer-events: none;
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+.banner{
+    position: relative;
+    top:0;
+    left:0;
+    background-color: #fff;
+    >.content{
+        width:100%;
+        height:100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .border-left-top,
+    .border-left-bottom,
+    .border-right-top,
+    .border-right-bottom{
+        position: absolute;
+        left:.3rem;
+        @include size(60px,94px);
+    }
+    .border-left-top,.border-right-top{
+        top:.3rem;
+        @include bg('banner-border-1.png');
+    }
+    .border-left-bottom,.border-right-bottom{
+        bottom:.3rem;
+        @include bg('banner-border-2.png');
+    }
+    .border-right-top,
+    .border-right-bottom{
+        left:auto;
+        right:.3rem;
+    }
+    .border-right-top{
+        @include bg('banner-border-3.png');
+    }
+    .border-right-bottom{
+        @include bg('banner-border-4.png');
+    }
+
+    %smallLine {
+        content:"";
+        width:98%;
+        height:1.5px;
+        background-color: $primary-color;
+        display: block;
+        margin:0 auto;
+    }
+    %middleLine {
+        content:"";
+        width:100%;
+        height:3px;
+        background-color: $primary-color;
+        display: block;
+        margin:0 auto;
+    }
+
+    .border-line-top,.border-line-bottom{
+        position: absolute;
+        top:.3rem;
+        left:0;
+        right:0;
+        margin:auto;
+        width:calc(100% - 170px);
+    }
+
+    .border-line-top{
+        &::before{
+            @extend %middleLine;
+        }
+        &::after{
+            margin-top:.1rem;
+            @extend %smallLine;
+        }
+    }
+    .border-line-bottom{
+        top:auto;
+        bottom:.3rem;
+        &::after{
+            margin-top:.1rem;
+            @extend %middleLine;
+        }
+        &::before{
+            @extend %smallLine;
+        }
+    }
+
+    .border-line-left,.border-line-right{
+        position: absolute;
+        top:0;
+        left:.3rem;
+        bottom:0;
+        margin:auto;
+        height:calc(100% - 240px);
+        display: flex;
+        align-items: center;
+    }
+
+    .border-line-left{
+        &::before{
+            @extend %middleLine;
+            height:100%;
+            width:3px;
+        }
+        &::after{
+            margin-left:.1rem;
+            @extend %smallLine;
+            height:98%;
+            width:1.5px;
+        }
+    }
+    .border-line-right{
+        left:auto;
+        right:0.3rem;
+        &::after{
+            @extend %middleLine;
+            height:100%;
+            width:3px;
+        }
+        &::before{
+            margin-right:.1rem;
+            @extend %smallLine;
+            height:98%;
+            width:1.5px;
+        }
+    }
+    
+
+
+    .banner-frame-box{
+        width:220px;
+        height:200px;
+        position: relative;
+        .banner-frame{
+            width:100%;
+            height:100%;
+            @include bg('banner-frame.png');
+            position: absolute;
+            top:-1px;
+            left:0;
+            z-index: 1;
+        }
+        .image-box{
+            width:218px;
+            height:197px;
+            margin-top:1px;
+            margin-left:1px;
+            overflow: hidden;
+            position: relative;
+            >img{
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+                display: block;
+                width:110%;
+                height:110%;
+                object-fit: cover;
+                filter: blur(10px);
+            }
+        }
+        .fragement-1{
+            position: absolute;
+            bottom:-20px;
+            right:-20px;
+            z-index: 2;
+            @include size(97px,109px);
+            @include bg('banner-fragment-1.png');
+        }
+        .fragement-2{
+            position: absolute;
+            top:-20px;
+            right:-30px;
+            z-index: 2;
+            @include size(129px,106px);
+            @include bg('banner-fragment-2.png');
+        }
+        .fragement-3{
+            position: absolute;
+            top:-20px;
+            left:-30px;
+            z-index: 2;
+            @include size(129px,106px);
+            @include bg('banner-fragment-3.png');
+        }
+        .fragement-4{
+            position: absolute;
+            bottom:-20px;
+            left:-20px;
+            z-index: 2;
+            @include size(97px,109px);
+            @include bg('banner-fragment-4.png');
+        }
+        .fragement-5{
+            position: absolute;
+            bottom:0;
+            top:0;
+            right:-30px;
+            margin:auto;
+            z-index: 2;
+            @include size(16px,26px);
+            @include bg('banner-fragment-5.png');
+        }
+        .fragement-6{
+            position: absolute;
+            bottom:0;
+            top:0;
+            left:-30px;
+            margin:auto;
+            z-index: 2;
+            @include size(16px,26px);
+            @include bg('banner-fragment-5.png');
+            transform: rotate(180deg);
+        }
+        .fragement-7,.fragement-8{
+            position: absolute;
+            bottom:0;
+            top:0;
+            left:60px;
+            margin: auto;
+            z-index: 3;
+            @include size(48px,100px);
+            @include bg('banner-fragment-7.png');
+        }
+        .fragement-8{
+            left:auto;
+            right:60px;
+        }
+    }
+    .our-name{
+        margin-top:60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size:22px;
+        .heart{
+            margin:0 20px;
+            @include size(23px,20px);
+            @include bg('heart-1.png');
+        }
+    }
+    .flower-1{
+        margin:20px auto;
+        margin-top:30px;
+        @include size(100px,25px);
+        @include bg('flower-1.png');
+        position: relative;
+        left:-10px;
+    }
+    .time{
+        text-align: center;
+        font-size:14px;
+    }
+}
+.frame-middle{
+    margin-top:50px;
+    position: relative;
+    .frame-box{
+        @include size(6.58rem,6.87rem);
+        margin:0 auto;
+        position: relative;
+        overflow: hidden;
+        .frame,>img{
+            width:100%;
+            height:100%;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        img{
+            display: block;
+            width:98%;
+            height:98%;
+            margin-top:2px;
+            margin-left:2px;
+            object-fit: cover;
+        }
+        .frame{
+            @include bg('frame-middle.png');
+            z-index: 1;
+        }
+    }
+    .leaf-1{
+        @include size(1.29rem,1.6rem);
+        @include bg('leaf-1.png');
+        position: absolute;
+        top:.3rem;
+        left:0;
+        z-index: 2;
+    }
+    .leaf-2{
+        @include size(1.59rem,.53rem);
+        @include bg('leaf-2.png');
+        position: absolute;
+        top:.66rem;
+        right:.7rem;
+        z-index: 2;
+    }
+    .leaf-3{
+        @include size(1.28rem,2.23rem);
+        @include bg('leaf-3.png');
+        position: absolute;
+        bottom:0rem;
+        right:0rem;
+        z-index: 2;
+    }
+}
+.invite{
+    width:280px;
+    padding:50px 0;
+    margin:0 auto;
+    margin-top:20px;
+    text-align: center;
+    font-size:14px;
+    line-height: 2em;
+    position: relative;
+    .leaf{
+        @include size(.78rem,1.96rem);
+        @include bg('leaf-4.png');
+        position: absolute;
+        bottom:0rem;
+        left:0;
+        top:0;
+        margin:auto;
+    }
+}
+.address{
+    width:300px;
+    padding:30px 0 30px 70px;
+    margin:0 auto;
+    text-align: left;
+    font-size:14px;
+    line-height: 2em;
+    position: relative;
+    >span{
+        margin-left:60px;
+    }
+    .leaf{
+        @include size(1.01rem,2.58rem);
+        @include bg('leaf-5.png');
+        position: absolute;
+        bottom:0rem;
+        left:0;
+        top:0;
+        margin:auto;
+    }
+}
+.date{
+    padding:50px 0;
+    position: relative;
+    .date-title{
+        width:6rem;
+        padding:0 0 0 1.4rem;
+        margin:0 auto;
+        font-size:14px;
+        line-height: 2em;
+        position: relative;
+        z-index: 2;
+        .leaf{
+            @include size(.75rem,.84rem);
+            @include bg('leaf-6.png');
+            position: absolute;
+            bottom:0rem;
+            left:0;
+            top:0;
+            margin:auto;
+        }
+    }
+    .circuit{
+        margin-top:40px;
+        position: relative;
+        z-index: 2;
+        &::after{
+            content:"";
+            width:1px;
+            height:100%;
+            background-color: $primary-color;
+            position: absolute;
+            top:0;
+            left:3.6rem;
+        }
+        li{
+            padding:.6rem 1.36rem .3rem 1.4rem;
+            position: relative;
+            display: flex;
+            .time{
+                position: absolute;
+                top:0;
+                left:1.4rem;
+            }
+            .preview-pic-box{
+                margin-left:.7rem;
+                width:1.2rem;
+                .preview-pic{
+                    margin:0 auto;
+                    &.act-1{
+                        @include size(.64rem,.95rem);
+                        @include bg('time-act-1.png');
+                    }
+                    &.act-2{
+                        @include size(.82rem,.85rem);
+                        @include bg('time-act-2.png');
+                    }
+                    &.act-3{
+                        @include size(1.03rem,.85rem);
+                        @include bg('time-act-3.png');
+                    }
+                    &.act-4{
+                        @include size(.91rem,1.13rem);
+                        @include bg('time-act-4.png');
+                    }
+                    &.act-5{
+                        @include size(.94rem,1.16rem);
+                        @include bg('time-act-5.png');
+                    }
+                }
+            }
+            .tip{
+                margin-left:1.3rem;
+                font-size:16px;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .time-act-bg{
+        @include size(3.54rem,8.26rem);
+        @include bg('time-act-bg.png');
+        position: absolute;
+        top:-0.5rem;
+        right:0;
+    }
+}
+.story{
+    position: relative;
+    .story-title{
+        padding-left:.5rem;
+        font-size:16px;
+        line-height: 2em;
+        position: relative;
+        z-index: 2;
+        text-align: left;
+        .leaf{
+            margin-bottom:.1rem;
+            @include size(1.65rem,1.06rem);
+            @include bg('leaf-7.png');
+        }
+    }
+    .frame-box-1{
+        @include size(6.9rem,4rem);
+        padding:0.2rem;
+        margin:0.2rem auto;
+        margin-top:.3rem;
+        position: relative;
+        >img{
+            display: block;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+        }
+    }
+    .frame-box-2{
+        @include size(4.1rem,5rem);
+        padding:0;
+        margin-top:-.1rem;
+        margin-left:.5rem;
+        position:relative;
+        >img{
+            display: block;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+        }
+    }
+    .frame-box-3{
+        @include size(4rem,5.69rem);
+        padding:0;
+        margin-top:.3rem;
+        margin-right:.3rem;
+        position:absolute;
+        top:4.8rem;
+        right:0;
+        >img{
+            display: block;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+        }
+    }
+    .frame-box-4{
+        @include size(6.8rem,4.2rem);
+        margin:0 auto;
+        margin-top:.3rem;
+        >img{
+            display: block;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            border-radius: .1rem
+        }
+    }
+    .bg{
+        @include size(5.12rem,3.73rem);
+        @include bg('story-bg.png');
+        position: absolute;
+        left:0rem;
+        z-index: -1;
+        top:7.7rem;
+    }
+    .flower-end{
+        @include size(2.57rem,5.27rem);
+        @include bg('flower-end.png');
+        position: absolute;
+        z-index: 2;
+        left:0rem;
+        bottom:-.8rem;
+    }
+    .end{
+        padding:1.5rem .3rem .5rem;
+        text-align: right;
+        span{
+            font-weight: bold;
+            font-size:18px;
+
+        }
+    }
+}

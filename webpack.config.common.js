@@ -189,9 +189,11 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|webp|svg)(\?.*)?$/,
                 use: [
                     {
-                        loader: 'file-loader',
+                        loader: 'url-loader',
                         options: {
-                            name: 'img/[name].[hash:8].[ext]'
+                            limit: 10000,
+                            name: 'img/[name].[hash:8].[ext]',
+                            esModule: false
                         }
                     }
                 ]
