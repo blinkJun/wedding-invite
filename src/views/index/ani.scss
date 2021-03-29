@@ -1,0 +1,121 @@
+$baseDuration : .6s;
+
+.ready-ani{
+    transition: all $baseDuration 0s ease-in;
+    opacity: 0;
+}
+
+#app{
+    .border-left-top{
+        transform: translate(20%,20%);
+    }
+    .border-left-bottom{
+        transform: translate(20%,-20%);
+    }
+    .border-right-top{
+        transform: translate(-20%,20%);
+    }
+    .border-right-bottom{
+        transform: translate(-20%,-20%);
+    }
+    
+    .border-line-top,
+    .border-line-bottom{
+        transform: scaleX(.8);
+    }
+    .border-line-left,
+    .border-line-right{
+        transform: scaleY(.8);
+    }
+    .banner .banner-frame-box .image-box{
+        >img{
+            opacity: 1;
+            transition-duration: $baseDuration + .2s;
+            transition-delay: .8s;
+            filter:none;
+        }
+    }
+    
+    .fragement-4{
+        transition-delay: $baseDuration;
+        transform: translate(20%,-20%);
+    }
+    .fragement-3{
+        transition-delay: $baseDuration;
+        transform: translate(20%,20%);
+    }
+    .fragement-2{
+        transition-delay: $baseDuration;
+        transform: translate(-20%,20%);
+    }
+    .fragement-1{
+        transition-delay: $baseDuration;
+        transform: translate(-20%,-20%);
+    }
+    
+    .fragement-5{
+        transition-delay: $baseDuration *2;
+        transform: translateX(30px);
+    }
+    .banner .banner-frame-box .fragement-6{
+        transition-delay: $baseDuration *2;
+        transform: translateX(-30px) rotate(180deg);
+    }
+    .fragement-7{
+        transition-delay: $baseDuration *2;
+        transform: translateX(-30px);
+    }
+    .fragement-8{
+        transition-delay: $baseDuration *2;
+        transform: translateX(30px);
+    }
+    
+    @keyframes blink{
+        0%{
+            opacity: 1;
+            transform: scale(1);
+        }
+        100%{
+            opacity: 0.2;
+            transform: scale(1.2);
+        }
+    }
+    .heart{
+        animation: blink .8s 0s linear alternate infinite;
+    }
+    
+    .name-1{
+        transition-timing-function: linear;
+        transition-delay: $baseDuration;
+        transform: translateX(-30%);
+    }
+    .name-2{
+        transition-timing-function: linear;
+        transition-delay: $baseDuration;
+        transform: translateX(30%);
+    }
+    
+    .flower-1{
+        transition-delay: $baseDuration * 2;
+        transform: translateY(30px);
+    }
+    .time{
+        transition-timing-function: linear;
+        transition-delay: $baseDuration * 3;
+        transform: translateY(30px);
+    }
+}
+
+#app .active-ani{
+    opacity: 1;
+    transform: none;
+
+    &.blur-pic{
+        transform: translate(-50%,-50%)!important;
+        filter:blur(20px)!important;
+    }
+
+    &.fragement-6{
+        transform: rotate(180deg)!important;
+    }
+}

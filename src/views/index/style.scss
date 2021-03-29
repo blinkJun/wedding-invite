@@ -217,7 +217,6 @@ body{
                 width:110%;
                 height:110%;
                 object-fit: cover;
-                filter: blur(10px);
             }
         }
         .fragement-1{
@@ -294,6 +293,9 @@ body{
         justify-content: center;
         align-items: center;
         font-size:22px;
+        backface-visibility: hidden;
+        position: relative;
+        z-index: 1;
         .heart{
             margin:0 20px;
             @include size(23px,20px);
@@ -311,6 +313,9 @@ body{
     .time{
         text-align: center;
         font-size:14px;
+        backface-visibility: hidden;
+        position: relative;
+        z-index: 1;
     }
 }
 .frame-middle{
