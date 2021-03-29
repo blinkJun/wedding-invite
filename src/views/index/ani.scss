@@ -94,14 +94,16 @@ $baseDuration : .8s;
         transition-delay: $baseDuration;
         transform: translateX(30%);
     }
+    .banner{
+        .time{
+            transition-timing-function: linear;
+            transition-delay: $baseDuration * 3;
+            transform: translateY(30px);
+        }
+    }
     
     .flower-1{
         transition-delay: $baseDuration * 2;
-        transform: translateY(30px);
-    }
-    .time{
-        transition-timing-function: linear;
-        transition-delay: $baseDuration * 3;
         transform: translateY(30px);
     }
 }
