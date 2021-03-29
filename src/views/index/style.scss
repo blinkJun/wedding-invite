@@ -494,6 +494,11 @@ body{
 }
 .story{
     position: relative;
+    .line{
+        width:1rem;
+        height:.15rem;
+        background-color: $primary-color;
+    }
     .story-title{
         padding-left:.5rem;
         font-size:16px;
@@ -520,38 +525,88 @@ body{
             object-fit: cover;
         }
     }
-    .frame-box-2{
-        @include size(4.1rem,5rem);
-        padding:0;
-        margin-top:-.1rem;
-        margin-left:.5rem;
-        position:relative;
-        >img{
-            display: block;
-            width:100%;
-            height:100%;
-            object-fit: cover;
+    .group-1{
+        margin-top:1rem;
+        .title{
+            padding:0 .5rem .3rem;
+            >h4{
+                margin-top:.2rem;
+                font-size:16px;
+                font-weight: bold;
+            }
+            >p{
+                margin-top:.05rem;
+                font-size:14px;
+                color:#ccc;
+            }
+        }
+        .pic-box{
+            padding: 0 .5rem;
+            display: flex;
+            justify-content: space-between;
+            >div{
+                width:48%;
+                height:4.6rem;
+                &:last-child{
+                    margin-top:.5rem;
+                }
+            }
+        }
+        .frame-box-2,
+        .frame-box-3{
+            >img{
+                display: block;
+                width:100%;
+                height:100%;
+                object-fit: cover;
+            }
         }
     }
-    .frame-box-3{
-        @include size(4rem,5.69rem);
-        padding:0;
-        margin-top:.3rem;
-        margin-right:.3rem;
-        position:absolute;
-        top:4.8rem;
-        right:0;
-        >img{
-            display: block;
-            width:100%;
-            height:100%;
-            object-fit: cover;
+    .group-2{
+        margin-top:1rem;
+        padding:0 .5rem;
+        position: relative;
+        .title{
+            position: absolute;
+            left:0rem;
+            bottom:0;
+            padding:0 .5rem .3rem;
+            >h4{
+                margin-bottom:.1rem;
+                font-size:16px;
+                font-weight: bold;
+            }
+            >p{
+                margin-top:.2rem;
+                font-size:14px;
+                color:#ccc;
+            }
+        }
+        .frame-box-5,
+        .frame-box-6,
+        .frame-box-7{
+            width:2rem;
+            height:2rem;
+            >img{
+                display: block;
+                width:100%;
+                height:100%;
+                object-fit: cover;
+            }
+        }
+        .frame-box-6{
+            margin-left:2.25rem;
+            margin-top:-.3rem;
+        }
+        .frame-box-7{
+            margin-left:4.5rem;
+            margin-top:-.6rem;
         }
     }
     .frame-box-4{
         @include size(6.8rem,4.2rem);
         margin:0 auto;
-        margin-top:.3rem;
+        margin-top:1rem;
         >img{
             display: block;
             width:100%;
@@ -559,14 +614,6 @@ body{
             object-fit: cover;
             border-radius: .1rem
         }
-    }
-    .bg{
-        @include size(5.12rem,3.73rem);
-        @include bg('story-bg.png');
-        position: absolute;
-        left:0rem;
-        z-index: -1;
-        top:7.7rem;
     }
     .flower-end{
         @include size(2.57rem,5.27rem);
