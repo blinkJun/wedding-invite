@@ -372,7 +372,7 @@ body{
     }
 }
 .invite{
-    width:280px;
+    width:5.6rem;
     padding:50px 0;
     margin:0 auto;
     margin-top:20px;
@@ -381,7 +381,7 @@ body{
     line-height: 2em;
     position: relative;
     .leaf{
-        @include size(.78rem,1.96rem);
+        @include size(39px,98px);
         @include bg('leaf-4.png');
         position: absolute;
         bottom:0rem;
@@ -391,8 +391,8 @@ body{
     }
 }
 .address{
-    width:300px;
-    padding:30px 0 30px 70px;
+    width:6rem;
+    padding:30px 0 30px 1.5rem;
     margin:0 auto;
     text-align: left;
     font-size:14px;
@@ -402,7 +402,7 @@ body{
         margin-left:60px;
     }
     .leaf{
-        @include size(1.01rem,2.58rem);
+        @include size(50px,129px);
         @include bg('leaf-5.png');
         position: absolute;
         bottom:0rem;
