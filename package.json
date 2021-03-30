@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "axios": "^0.18.1",
+    "swiper": "^6.5.2",
     "view-design": "^4.2.0",
     "vue": "^2.6.11",
     "weixin-js-sdk": "^1.6.0"

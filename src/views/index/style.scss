@@ -8,6 +8,7 @@ html{
 body{
     min-height: 100%;
     background-color: #fff;
+    font-size:.32rem;
 }
 .app{
     min-height:100%;
@@ -258,7 +259,7 @@ body{
             right:-30px;
             margin:auto;
             z-index: 2;
-            @include size(16px,26px);
+            @include size(.32rem,26px);
             @include bg('banner-fragment-5.png');
         }
         .fragement-6{
@@ -268,7 +269,7 @@ body{
             left:-30px;
             margin:auto;
             z-index: 2;
-            @include size(16px,26px);
+            @include size(.32rem,26px);
             @include bg('banner-fragment-5.png');
             transform: rotate(180deg);
         }
@@ -288,11 +289,11 @@ body{
         }
     }
     .our-name{
-        margin-top:60px;
+        margin-top:1.2rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size:22px;
+        font-size:.44rem;
         backface-visibility: hidden;
         position: relative;
         z-index: 1;
@@ -312,7 +313,7 @@ body{
     }
     .time{
         text-align: center;
-        font-size:14px;
+        font-size:.28rem;
         backface-visibility: hidden;
         position: relative;
         z-index: 1;
@@ -322,54 +323,85 @@ body{
     margin-top:50px;
     position: relative;
     .frame-box{
-        @include size(6.58rem,6.87rem);
+        @include size(6.9rem,4rem);
         margin:0 auto;
         position: relative;
         overflow: hidden;
-        .frame,>img{
+        padding:.28rem;
+        .frame,.frame-bold{
             width:100%;
             height:100%;
             position: absolute;
             top:0;
             left:0;
+            &::before{
+                content:"";
+                position: absolute;
+                top:0;
+                left:0;
+                width:30%;
+                height:30%;
+                border-top:.05rem solid $primary-color;
+                border-left:.05rem solid $primary-color;
+            }
+            &::after{
+                content:"";
+                position: absolute;
+                bottom:0;
+                right:0;
+                width:30%;
+                height:30%;
+                border-bottom:.05rem solid $primary-color;
+                border-right:.05rem solid $primary-color;
+            }
+        }
+        .frame-bold{
+            &::before{
+                top:.12rem;
+                left:.12rem;
+                border-width: .06rem;
+                width:15%;
+                height:15%;
+            }
+            &::after{
+                right:.12rem;
+                bottom:.12rem;
+                border-width: .06rem;
+                width:15%;
+                height:15%;
+            }
         }
         img{
             display: block;
-            width:98%;
-            height:98%;
-            margin-top:2px;
-            margin-left:2px;
+            width:100%;
+            height:100%;
             object-fit: cover;
         }
-        .frame{
-            @include bg('frame-middle.png');
-            z-index: 1;
-        }
     }
-    .leaf-1{
-        @include size(1.29rem,1.6rem);
-        @include bg('leaf-1.png');
-        position: absolute;
-        top:.3rem;
-        left:0;
-        z-index: 2;
-    }
-    .leaf-2{
-        @include size(1.59rem,.53rem);
-        @include bg('leaf-2.png');
-        position: absolute;
-        top:.66rem;
-        right:.7rem;
-        z-index: 2;
-    }
-    .leaf-3{
-        @include size(1.28rem,2.23rem);
-        @include bg('leaf-3.png');
-        position: absolute;
-        bottom:0rem;
-        right:0rem;
-        z-index: 2;
-    }
+    // .leaf-1{
+    //     @include size(1.29rem,1.6rem);
+    //     @include bg('leaf-1.png');
+    //     position: absolute;
+    //     top:.3rem;
+    //     left:0;
+    //     z-index: 2;
+    // }
+    // .leaf-2{
+    //     @include size(1.59rem,.53rem);
+    //     @include bg('leaf-2.png');
+    //     position: absolute;
+    //     top:.66rem;
+    //     right:0rem;
+    //     z-index: 2;
+    // }
+    // .leaf-3{
+    //     @include size(1.28rem,2.23rem);
+    //     @include bg('leaf-3.png');
+    //     position: absolute;
+    //     top:0rem;
+    //     right:0rem;
+    //     z-index: 2;
+    // }
 }
 .invite{
     width:5.6rem;
@@ -377,7 +409,7 @@ body{
     margin:0 auto;
     margin-top:20px;
     text-align: center;
-    font-size:14px;
+    font-size:.28rem;
     line-height: 2em;
     position: relative;
     .leaf{
@@ -395,11 +427,11 @@ body{
     padding:30px 0 30px 1.5rem;
     margin:0 auto;
     text-align: left;
-    font-size:14px;
+    font-size:.28rem;
     line-height: 2em;
     position: relative;
     >span{
-        margin-left:60px;
+        margin-left:1.2rem;
     }
     .leaf{
         @include size(50px,129px);
@@ -416,10 +448,10 @@ body{
     position: relative;
     .date-title{
         width:6rem;
-        padding:0 0 0 1.4rem;
         margin:0 auto;
-        font-size:14px;
+        font-size:.28rem;
         line-height: 2em;
+        text-align: center;
         position: relative;
         z-index: 2;
         .leaf{
@@ -483,7 +515,7 @@ body{
             }
             .tip{
                 margin-left:1.3rem;
-                font-size:16px;
+                font-size:.32rem;
                 display: flex;
                 align-items: center;
             }
@@ -498,6 +530,7 @@ body{
     }
 }
 .story{
+    margin-top:50px;
     position: relative;
     .line{
         width:1rem;
@@ -506,11 +539,12 @@ body{
     }
     .story-title{
         padding-left:.5rem;
-        font-size:16px;
+        font-size:.32rem;
         line-height: 2em;
         position: relative;
         z-index: 2;
         text-align: left;
+        font-weight: bold;
         .leaf{
             margin-bottom:.1rem;
             @include size(1.65rem,1.06rem);
@@ -521,7 +555,7 @@ body{
         @include size(6.9rem,4rem);
         padding:0.2rem;
         margin:0.2rem auto;
-        margin-top:.3rem;
+        margin-top:30px;
         position: relative;
         >img{
             display: block;
@@ -530,20 +564,54 @@ body{
             object-fit: cover;
         }
     }
+    .group-0{
+        margin-top:50px;
+        .tips{
+            padding:0rem .5rem .3rem;
+            text-align: right;
+            font-size:.28rem;
+            color:#999;
+        }
+        .line{
+            float:right;
+            height:1px;
+            width:.6rem;
+            margin-right:.5rem;
+            margin-top:-.2rem;
+        }
+    }
     .group-1{
-        margin-top:1rem;
+        margin-top:70px;
+        position: relative;
         .title{
-            padding:0 .5rem .3rem;
-            >h4{
-                margin-top:.2rem;
-                font-size:16px;
-                font-weight: bold;
+            position: absolute;
+            right:.5rem;
+            top:0rem;
+            padding:0 0;
+        }
+        .tips{
+            position: absolute;
+            left:.5rem;
+            bottom:-.9rem;
+            font-size:.28rem;
+            color:#999;
+            padding-left:.6rem;
+            line-height: 2em;
+            span{
+                margin-left:.4rem;
+                &:last-child{
+                    margin-left:.8rem;
+                }
             }
-            >p{
-                margin-top:.05rem;
-                font-size:14px;
-                color:#ccc;
-            }
+        }
+        .border{
+            width:3.5rem;
+            height:6.7rem;
+            border:1px solid $primary-color;
+            position: absolute;
+            z-index: -1;
+            top:-.1rem;
+            left:.7rem;
         }
         .pic-box{
             padding: 0 .5rem;
@@ -553,7 +621,7 @@ body{
                 width:48%;
                 height:4.6rem;
                 &:last-child{
-                    margin-top:.5rem;
+                    margin-top:1rem;
                 }
             }
         }
@@ -568,24 +636,33 @@ body{
         }
     }
     .group-2{
-        margin-top:1rem;
+        margin-top:2rem;
         padding:0 .5rem;
         position: relative;
         .title{
             position: absolute;
             left:0rem;
             bottom:0;
-            padding:0 .5rem .3rem;
+            padding:0 .5rem 0rem;
             >h4{
                 margin-bottom:.1rem;
-                font-size:16px;
+                font-size:.28rem;
                 font-weight: bold;
             }
             >p{
                 margin-top:.2rem;
-                font-size:14px;
-                color:#ccc;
+                font-size:.28rem;
+                color:#666;
             }
+        }
+        .tips{
+            position: absolute;
+            right:0.5rem;
+            top:-.5rem;
+            width:.28rem;
+            text-align: left;
+            font-size:.28rem;
+            color:#aaa;
         }
         .frame-box-5,
         .frame-box-6,
@@ -601,19 +678,69 @@ body{
         }
         .frame-box-6{
             margin-left:2.25rem;
-            margin-top:-.3rem;
+            margin-top:.2rem;
         }
         .frame-box-7{
             margin-left:4.5rem;
-            margin-top:-.6rem;
+            margin-top:.2rem;
         }
+    }
+    .group-3{
+        margin-top:2rem;
+        padding:0 .5rem;
+        position: relative;
+        @extend %clearFloat;
+        .title{
+            h4{
+                font-size:.32rem;
+            }
+            .line{
+                margin:.2rem 0 .5rem;
+            }
+            p{
+                margin-bottom:.5rem;
+                color:#999;
+                font-size:.28rem;
+            }
+        }
+        .tips{
+            position: absolute;
+            left:0.5rem;
+            bottom:0rem;
+            color:#aaa;
+            font-size:.28rem;
+        }
+        img{
+            display: block;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+        }
+        .frame-box-2{
+            width:100%;
+            height:4rem;
+        }
+        .frame-box-3{
+            float:right;
+            width:2rem;
+            height:1.2rem;
+            margin-left:.1rem;
+            margin-top:.1rem;
+        }
+    }
+    .day-day{
+        font-size:.28rem;
+        color:#999;
+        margin-top:1.6rem;
+        padding:0 .5rem;
     }
     .frame-box-4{
         @include size(6.8rem,4.2rem);
         margin:0 auto;
-        margin-top:1rem;
-        >img{
+        margin-top:.3rem;
+        .swiper-slide img{
             display: block;
+            @include size(6.8rem,4.2rem);
             width:100%;
             height:100%;
             object-fit: cover;
@@ -628,13 +755,21 @@ body{
         left:0rem;
         bottom:-.8rem;
     }
+    .ten-year{
+        margin:.5rem;
+        text-align: center;
+        color:#666;
+        font-size:.28rem;
+        line-height: 2em;
+    }
     .end{
         padding:1.5rem .3rem .5rem;
         text-align: right;
+        color:#999;
+        font-size:.28rem;
         span{
             font-weight: bold;
-            font-size:18px;
-
+            font-size:.36rem;
         }
     }
 }

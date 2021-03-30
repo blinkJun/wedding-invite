@@ -6,6 +6,7 @@
     <title>our wedding</title>
     <%=require('html-loader!@/modules/html/scale750.html')%>
     <%=require('html-loader!@/modules/html/html5shiv.html')%>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">  
 </head>
 <body>
     <div class="loading" >
@@ -60,15 +61,16 @@
         </section>
         <section class="frame-middle" >
             <div class="frame-box" >
-                <img src="<%= require('@/images/story/IMG_0071.jpg')%>" alt="">
+                <img src="<%= require('@/images/story/HRQ11516.png')%>" alt="">
                 <div class='frame' ></div>
+                <div class='frame-bold' ></div>
             </div>
-            <div class="leaf-1" ></div>
+            <!-- <div class="leaf-1" ></div>
             <div class="leaf-2" ></div>
-            <div class="leaf-3" ></div>
+            <div class="leaf-3" ></div> -->
         </section>
         <section class="invite" >
-            梁俊 和 韦晓霞 <br>
+            梁俊 & 韦晓霞 <br>
             诚邀您来参加我们的婚礼
             <div class="leaf" ></div>
         </section>
@@ -80,7 +82,7 @@
         </section>
         <section class="date" >
             <div class="date-title" >
-                时间：05月01日
+                「 流程 」
                 <div class="leaf" ></div>
             </div>
             <ul class="circuit" >
@@ -126,46 +128,131 @@
             <div class="story-title" >
                 <div class="leaf" ></div>
                 - OUR STORY - 
+
             </div>
-            <div class="frame-box-1" >
-                <img src="<%= require('@/images/story/IMG_0071.jpg')%>" alt="">
+            <div class="group-0" >
+                <div class="frame-box-1" >
+                    <img src="<%= require('@/images/story/HRQ11344.jpg')%>" alt="">
+                </div>
+                <p class="tips" >爱不是彼此对视，而是共同眺望远方</p>
+                <div class="line" ></div>
             </div>
             <div class="group-1" >
+                <h4 class="title" >“ Yes, I do ”</h4>
+                <p class="tips" >
+                    一路走来<br>
+                    <span>相偎看山河</span><br>
+                    <span>相携看四季</span>    
+                </p>
+                <div class="border" ></div>
+                <div class="pic-box" >
+                    <div class="frame-box-2 ready-ani" >
+                        <img src="<%= require('@/images/story/HRQ11285.jpg')%>" alt="">
+                    </div>
+                    <div class="frame-box-3" >
+                        <img src="<%= require('@/images/story/HRQ11290.jpg')%>" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="group-3" >
                 <div class="title" >
+                    <h4># 从此</h4>
                     <div class="line" ></div>
-                    <h4>We Are Marry</h4>
-                    <p>To have life henceforth, the poem of new joys</p>
+                    <p>“一屋 两人 三餐 四季”</p>
+                </div>
+                <div class="tips" >
+                    Love never fails.
                 </div>
                 <div class="pic-box" >
                     <div class="frame-box-2 ready-ani" >
-                        <img src="<%= require('@/images/story/IMG_0071.jpg')%>" alt="">
+                        <img src="<%= require('@/images/story/HRQ11473.jpg')%>" alt="">
                     </div>
-                    <div class="frame-box-3" >
-                        <img src="<%= require('@/images/story/IMG_0071.jpg')%>" alt="">
+                    <div class="frame-box-3 ready-ani" >
+                        <img src="<%= require('@/images/story/HRQ11461.jpg')%>" alt="">
+                    </div>
+                    <div class="frame-box-3 ready-ani" >
+                        <img src="<%= require('@/images/story/HRQ11460.jpg')%>" alt="">
                     </div>
                 </div>
             </div>
             <div class="group-2" >
+                <p class="tips" >
+                    平凡的陪伴最心安
+                </p>
                 <div class="title" >
-                    <h4>从此</h4>
-                    <div class="line" ></div>
-                    <p>“一屋 两人 三餐 四季”</p>
+                    <p>FIND YOU</p>
+                    <p>LOVE YOU</p>
+                    <p>MARRY YOU</p>
+                    <p>AND LIVE WITHOUT SHAME</p>
                 </div>
                 <div class="frame-box-5" >
-                    <img src="<%= require('@/images/story/IMG_0071.jpg')%>" alt="">
+                    <img src="<%= require('@/images/story/HRQ11390.png')%>" alt="">
                 </div>
                 <div class="frame-box-6" >
-                    <img src="<%= require('@/images/story/IMG_0071.jpg')%>" alt="">
+                    <img src="<%= require('@/images/story/HRQ11393.png')%>" alt="">
                 </div>
                 <div class="frame-box-7" >
-                    <img src="<%= require('@/images/story/IMG_0071.jpg')%>" alt="">
+                    <img src="<%= require('@/images/story/HRQ11394.png')%>" alt="">
                 </div>
             </div>
-            <div class="frame-box-4" >
-                <img src="<%= require('@/images/story/IMG_0071.jpg')%>" alt="">
+            <p class="day-day" >
+                “在你身边 / 你在身边 / 日日又年年”
+            </p>
+            <div class="swiper-container frame-box-4">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11448.jpg')%>" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11517.jpg')%>" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11181.jpg')%>" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11322.jpg')%>" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11325.jpg')%>" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11376.jpg')%>" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11645.jpg')%>" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11719.jpg')%>" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11576.jpg')%>" alt="">
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11459.jpg')%>" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11534.jpg')%>" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11517.jpg')%>" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<%= require('@/images/story/HRQ11376.jpg')%>" alt="">
+                    </div>
+                </div>
             </div>
             <div class="flower-end" ></div>
+            <p class="ten-year" >
+                相恋十年<br>
+                一辈子很长，恰到好处的喜欢是最好<br>
+                人间于此，欢喜是你.
+            </p>
             <div class="end" >
+                感谢你 <br>
+                不远千里 / 为我们祝福 / 婚礼见 ❤
+                <br><br>
                 <span>- END</span>
                 <br>
                 THANKS

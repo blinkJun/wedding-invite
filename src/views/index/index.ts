@@ -1,6 +1,7 @@
 import "./style.scss";
 import "./ani.scss";
 import axios from 'axios'
+import Swiper from 'swiper'
 const wx = require('weixin-js-sdk')
 
 
@@ -16,6 +17,12 @@ const closeLoading = function(){
         loadingEl.remove()
     },200)
 }
+
+new Swiper('.swiper-container',{
+    lazy: true,
+    zoom:true,
+    spaceBetween:30
+}) 
 
 // 资源加载完成时移除loading
 window.addEventListener('load',()=>{
