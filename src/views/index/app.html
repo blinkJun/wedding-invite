@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>our wedding</title>
+    <title>梁俊&韦晓霞的婚礼邀请函</title>
     <%=require('html-loader!@/modules/html/scale750.html')%>
     <%=require('html-loader!@/modules/html/html5shiv.html')%>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">  
@@ -75,9 +75,13 @@
             <div class="leaf" ></div>
         </section>
         <section class="address" >
-            男方地址：宾阳县新圩镇金恩药店<br>
-            <span>（邮政对面）</span><br>
-            酒店地址：宾阳蒙记食府
+            <p class="address-sunrise" >女方地址：北街-西环路益霖砖厂路口进去800米<span>（点击查看地图）</span></p>
+            <br>
+            <p class="address-jun" >
+                男方地址：宾阳县新圩镇金恩药店<span>（点击查看地图）</span>
+            </p>
+            <br>
+            <p class="address-res" >酒店地址：宾阳蒙记食府<span>（点击查看地图）</span></p>
             <div class="leaf" ></div>
         </section>
         <section class="date" >
@@ -266,5 +270,10 @@
             </div>
         </section>
     </div>
+    <div class="play-toggle" >
+        <img src="<%= require('@/images/music.svg')%>" class="play show" alt="">
+        <img src="<%= require('@/images/mute.svg')%>" class="mute hide" alt="">
+    </div>
+    <audio src="http://qquctws3v.hn-bkt.clouddn.com/bg.mp3" id="audio" loop ></audio>
 </body>
 </html>

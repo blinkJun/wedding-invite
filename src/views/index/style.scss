@@ -422,6 +422,13 @@ body{
         margin:auto;
     }
 }
+.address-jun,
+.address-sunrise,
+.address-res{
+    >span{
+        text-decoration: underline;
+    }
+}
 .address{
     width:6rem;
     padding:30px 0 30px 1.5rem;
@@ -430,9 +437,6 @@ body{
     font-size:.28rem;
     line-height: 2em;
     position: relative;
-    >span{
-        margin-left:1.2rem;
-    }
     .leaf{
         @include size(50px,129px);
         @include bg('leaf-5.png');
@@ -704,12 +708,12 @@ body{
             padding:0 .5rem 0rem;
             >h4{
                 margin-bottom:.1rem;
-                font-size:.28rem;
+                font-size:.24rem;
                 font-weight: bold;
             }
             >p{
                 margin-top:.2rem;
-                font-size:.28rem;
+                font-size:.24rem;
                 color:#666;
             }
         }
@@ -830,4 +834,27 @@ body{
             font-size:.36rem;
         }
     }
+}
+.play-toggle{
+    position: fixed;
+    top:.3rem;
+    right:.3rem;
+    width:.8rem;
+    height:.8rem;
+    >img{
+        width:100%;
+        height:100%;
+        display: block;
+        &.hide{
+            display: none;
+        }
+    }
+}
+#audio{
+    opacity: 0;
+    position: absolute;
+    z-index: -100;
+    left:-1000px;
+    top:-1000px;
+    display: none;
 }

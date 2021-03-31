@@ -120,12 +120,12 @@ const startElementInSight = ()=>{
         }
     })
 }
-
-axios.get(`http://sunrise.tojike.com/hawk-api/wechat/signature?url=${encodeURIComponent(location.href)}`).then((res)=>{
-    const {jsapi_ticket,noncestr,signature,timestamp} = res.data.data
+const query = location.search
+const initWxConfig = function(res:any){
+    const {appId,noncestr,signature,timestamp} = res.data.data
     wx.config({
         debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: 'wx0a6c14eccd76ea7a', // 必填，公众号的唯一标识
+        appId: appId, // 必填，公众号的唯一标识
         timestamp: timestamp, // 必填，生成签名的时间戳
         nonceStr: noncestr, // 必填，生成签名的随机串
         signature: signature,// 必填，签名
@@ -133,13 +133,21 @@ axios.get(`http://sunrise.tojike.com/hawk-api/wechat/signature?url=${encodeURICo
             'updateTimelineShareData',
             'updateAppMessageShareData',
             'onMenuShareTimeline',
-            'onMenuShareAppMessage'
+            'onMenuShareAppMessage',
+            'openLocation'
         ] // 必填，需要使用的JS接口列表
     });
-})
+}
+if(query.includes('share')){
+    axios.get(`http://sunrise.tojike.com/hawk-api/wechat/signature-test?url=${encodeURIComponent(location.href)}`).then(initWxConfig)
+}else{
+    axios.get(`http://sunrise.tojike.com/hawk-api/wechat/signature?url=${encodeURIComponent(location.href)}`).then(initWxConfig)
+}
+
+
 wx.ready(function () {      //需在用户可能点击分享按钮前就先调用
-    const title = '梁俊和韦晓霞的婚礼'
-    const link = location.href
+    const title = '梁俊&韦晓霞的婚礼邀请函'
+    const link = 'http://sunrise.tojike.com/wedding/'
     const imageUrl = 'http://sunrise.tojike.com/wedding/img/HRQ11517.08741350.jpg'
     const desc = '欢迎您来参加我们的婚礼'
 
@@ -165,7 +173,52 @@ wx.ready(function () {      //需在用户可能点击分享按钮前就先调�
         link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl: imageUrl // 分享图标
     });
-}); 
+});
+document.querySelector('.address-jun').addEventListener('click',()=>{
+    wx.openLocation({
+        latitude: 23.330177, // 纬度，浮点数，范围为90 ~ -90
+        longitude: 108.795106, // 经度，浮点数，范围为180 ~ -180。
+        name: '新圩镇金恩药店', // 位置名
+        address: '新圩镇金恩药店（邮政银行对面）', // 地址详情说明
+        scale: 15, // 地图缩放级别,整型值,范围从1~28。默认为最大
+        infoUrl: 'https://map.baidu.com/poi/%E6%96%B0%E5%9C%A9%E6%9D%8F%E6%9E%97%E6%98%A5%E8%8D%AF%E5%BA%97/@12111873.125,2655653,19z?uid=6c4c0c802a6691314e776edd&ugc_type=3&ugc_ver=1&device_ratio=1&compat=1&querytype=detailConInfo&da_src=shareurl' // 在查看位置界面底部显示的超链接,可点击跳转
+    });
+})
+document.querySelector('.address-res').addEventListener('click',()=>{
+    wx.openLocation({
+        latitude: 23.215273, // 纬度，浮点数，范围为90 ~ -90
+        longitude: 108.814324, // 经度，浮点数，范围为180 ~ -180。
+        name: '宾阳蒙记食府', // 位置名
+        address: '南宁市宾阳县思远路与金和路交叉路口往西南约100米(祥和小区北侧)', // 地址详情说明
+        scale: 15, // 地图缩放级别,整型值,范围从1~28。默认为最大
+        infoUrl: 'https://map.baidu.com/poi/%E8%92%99%E8%AE%B0%E9%A3%9F%E5%BA%9C/@12114002.085,2641844.37,19z?uid=61e1a918549ab543a0acc479&ugc_type=3&ugc_ver=1&device_ratio=1&compat=1&querytype=detailConInfo&da_src=shareurl' // 在查看位置界面底部显示的超链接,可点击跳转
+    });
+})
+document.querySelector('.address-sunrise').addEventListener('click',()=>{
+    wx.openLocation({
+        latitude: 23.25911, // 纬度，浮点数，范围为90 ~ -90
+        longitude: 108.820465, // 经度，浮点数，范围为180 ~ -180。
+        name: '北街', // 位置名
+        address: '（勒马红绿灯西环路益霖砖厂路口进去800米）', // 地址详情说明
+        scale: 15, // 地图缩放级别,整型值,范围从1~28。默认为最大
+        infoUrl: 'http://weixin.qq.com' // 在查看位置界面底部显示的超链接,可点击跳转
+    });
+})
 
+const musicBtn = document.querySelector('.play-toggle')
+const btnPlay = musicBtn.querySelector('.play')
+const btnMute = musicBtn.querySelector('.mute')
+const player = document.querySelector('#audio') as HTMLAudioElement
+musicBtn.addEventListener('click',()=>{
+    if(player.paused){
+        btnPlay.classList.remove('hide')
+        btnMute.classList.add('hide')
+        player.play()
+    }else{
+        player.pause()
+        btnMute.classList.remove('hide')
+        btnPlay.classList.add('hide')
+    }
+})
 
 
