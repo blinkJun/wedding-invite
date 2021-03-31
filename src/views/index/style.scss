@@ -475,7 +475,58 @@ body{
             background-color: $primary-color;
             position: absolute;
             top:0;
-            left:3.6rem;
+            left:0;
+            right:0;
+            margin:auto;
+        }
+        >.start{
+            margin:0 auto;
+            position: relative;
+            top:-.15rem;
+        }
+        >.end{
+            margin:0 auto;
+            position: relative;
+            bottom:-.15rem;
+        }
+        @keyframes blink {
+            0%{
+                opacity: .8;
+                transform: scale(.7);
+            }
+            100%{
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+        .step{
+            width:.15rem;
+            height:.15rem;
+            border-radius: 50%;
+            background-color: #ab495e;
+            &::after{
+                content:'';
+                position: absolute;
+                display: block;
+                width:200%;
+                height:200%;
+                top:-.075rem;
+                left:-.075rem;
+                border-radius: 50%;
+                background-color: rgba(171,73,94,.2);
+            }
+            &.past{
+                background-color: #aaa;
+                &::after{
+                    background-color: rgba(0,0,0,.3);
+                }
+            }
+            &.active{
+                &::after{
+                    background-color: rgba(171,73,94,.6);
+                    animation: blink 1s 0s linear alternate infinite;
+                }
+            }
         }
         li{
             padding:.6rem 1.36rem .3rem 1.4rem;
@@ -485,6 +536,13 @@ body{
                 position: absolute;
                 top:0;
                 left:1.4rem;
+            }
+            .step{
+                position: absolute;
+                left:0;
+                right:0;
+                bottom:.75rem;
+                margin:auto;
             }
             .preview-pic-box{
                 margin-left:.7rem;

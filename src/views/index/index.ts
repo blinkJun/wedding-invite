@@ -18,11 +18,46 @@ const closeLoading = function(){
     },200)
 }
 
+// 底下的轮播图
 new Swiper('.swiper-container',{
     lazy: true,
     zoom:true,
     spaceBetween:30
 }) 
+
+// 监听时间
+const flowTimeListen = function(){
+    const flow = [
+        new Date('2021-05-01 00:00:00').getTime(),
+        new Date('2021-05-01 08:00:00').getTime(),
+        new Date('2021-05-01 11:00:00').getTime(),
+        new Date('2021-05-01 12:00:00').getTime(),
+        new Date('2021-05-01 14:00:00').getTime(),
+        new Date('2021-05-01 16:00:00').getTime(),
+        new Date('2021-05-02 00:00:00').getTime(),
+    ]
+    setInterval(()=>{
+        const now = Date.now()
+        const steps = document.querySelectorAll('.step')
+        let active = false
+        for(let i = steps.length-1;i>=0;i--){
+            const stepEl = steps[i];
+            const stepMaxTime = flow[i]
+            stepEl.classList.remove('active')
+            if(active){
+                if(!stepEl.classList.contains('past')){
+                    stepEl.classList.add('past')
+                }
+            }else if(now>stepMaxTime){
+                if(!stepEl.classList.contains('active')){
+                    stepEl.classList.add('active')
+                    active = true
+                }
+            }
+        }
+    },1000)
+}
+flowTimeListen()
 
 // 资源加载完成时移除loading
 window.addEventListener('load',()=>{
