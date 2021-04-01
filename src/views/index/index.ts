@@ -17,6 +17,33 @@ const closeLoading = function(){
     },200)
 }
 
+const heartScale = function(){
+    const allHeart = document.querySelectorAll('.hearts img');
+    const width = window.innerWidth
+    const height = window.innerHeight
+    setInterval(()=>{
+        const randomIndex = Math.floor(allHeart.length*Math.random()) 
+        const randomTop = Math.floor(height*Math.random())
+        const randomLeft = Math.floor(width*Math.random())
+
+        const focusEl = allHeart[randomIndex] as HTMLElement
+        if(focusEl.classList.contains('active')){
+            return false
+        }
+        // reset 
+        focusEl.style.top = randomTop + 'px'
+        focusEl.style.left = randomLeft + 'px'
+
+        focusEl.classList.add('active')
+        focusEl.onanimationend = ()=>{
+            focusEl.onanimationend=()=>{
+                focusEl.classList.remove('active')
+            }
+        }
+    },400)
+}
+heartScale()
+
 // 监听时间
 const flowTimeListen = function(){
     const flow = [
