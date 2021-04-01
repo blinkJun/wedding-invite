@@ -107,11 +107,83 @@ $gapDuration : .2s;
         transition-delay: $baseDuration * 2 - $gapDuration *2;
         transform: translateY(30px);
     }
+
+    .frame,
+    .frame-bold{
+        transform: scale(.8);
+    }
+    .frame{
+        transition-delay: .1s;
+    }
+    .invite-text,
+    .address-sunrise,
+    .address-jun,
+    .address-res{
+        transform: translateY(10px);
+    }
+    .tip,.line{
+        transform: translateX(10px);
+    }
+    .frame-box-1{
+        filter: blur(10px);
+    }
+    .tips{
+        transform: translateX(-10px);
+    }
+    .frame-box-2{
+        transform: translateY(-20px);
+    }
+    .frame-box-3{
+        transform: translateY(20px);
+    }
+    .to-start-line{
+        transition-delay: .1s;
+        transform: translateX(10px);
+    }
+    .to-start-text{
+        transition-delay: .2s;
+        transform: translateX(10px);
+    }
+
+    .group-frame-3{
+        transform: translateY(20px);
+    }
+    .group-frame-4{
+        transition-delay: .2s;
+        transform: translateY(20px);
+    }
+    .frame-box-5,
+    .frame-box-6,
+    .frame-box-7{
+        transform: translateX(20px);
+    }
+    .frame-box-6{
+        transition-delay: .2s;
+    }
+    .frame-box-7{
+        transition-delay: .3s;
+    }
+    .group-2-title-1,
+    .group-2-title-2,
+    .group-2-title-3,
+    .group-2-title-4{
+        transform: translateX(10px);
+    }
+    .group-2-title-2{
+        transition-delay: .1s;
+    }
+    .group-2-title-3{
+        transition-delay: .2s;
+    }
+    .group-2-title-4{
+        transition-delay: .4s;
+    }
 }
 
 #app .active-ani{
     opacity: 1;
     transform: none;
+    filter:none;
 
     &.blur-pic{
         transform: translate(-50%,-50%)!important;

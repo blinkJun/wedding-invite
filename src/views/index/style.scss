@@ -412,6 +412,9 @@ body{
     font-size:.28rem;
     line-height: 2em;
     position: relative;
+    span{
+        color:#666
+    }
     .leaf{
         @include size(39px,98px);
         @include bg('leaf-4.png');
@@ -839,6 +842,7 @@ body{
     position: fixed;
     top:.3rem;
     right:.3rem;
+    z-index: 10;
     width:.8rem;
     height:.8rem;
     >img{
@@ -888,6 +892,14 @@ body{
             opacity: 1;
             animation:scaleIn 3s 0s ease-in forwards,scaleOut 3s 3s linear forwards;
         }
+    }
+}
+.swiper-button-prev,
+.swiper-button-next{
+    outline: none;
+    &::after{
+        font-size:.48rem;
+        color:$primary-color
     }
 }
 #audio{
