@@ -1,7 +1,6 @@
 import "./style.scss";
 import "./ani.scss";
 import axios from 'axios'
-import Swiper from 'swiper'
 const wx = require('weixin-js-sdk')
 
 
@@ -17,13 +16,6 @@ const closeLoading = function(){
         loadingEl.remove()
     },200)
 }
-
-// 底下的轮播图
-new Swiper('.swiper-container',{
-    lazy: true,
-    zoom:true,
-    spaceBetween:30
-}) 
 
 // 监听时间
 const flowTimeListen = function(){
@@ -148,7 +140,7 @@ if(query.includes('share')){
 wx.ready(function () {      //需在用户可能点击分享按钮前就先调用
     const title = '梁俊&韦晓霞的婚礼邀请函'
     const link = 'http://sunrise.tojike.com/wedding/'
-    const imageUrl = 'http://sunrise.tojike.com/wedding/img/HRQ11517.08741350.jpg'
+    const imageUrl = 'http://suncdn.tojike.com/images/HRQ11517.jpg'
     const desc = '欢迎您来参加我们的婚礼'
 
     wx.updateTimelineShareData({ 

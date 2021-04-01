@@ -8,7 +8,6 @@ html{
 body{
     min-height: 100%;
     background-color: #fff;
-    font-size:.32rem;
 }
 .app{
     min-height:100%;
@@ -297,6 +296,7 @@ body{
         backface-visibility: hidden;
         position: relative;
         z-index: 1;
+        color:#666;
         .heart{
             margin:0 20px;
             @include size(23px,20px);
@@ -453,7 +453,7 @@ body{
     .date-title{
         width:6rem;
         margin:0 auto;
-        font-size:.28rem;
+        font-size:.32rem;
         line-height: 2em;
         text-align: center;
         position: relative;
@@ -650,6 +650,7 @@ body{
             right:.5rem;
             top:0rem;
             padding:0 0;
+            font-size:.32rem;
         }
         .tips{
             position: absolute;
@@ -811,7 +812,6 @@ body{
     }
     .flower-end{
         @include size(2.57rem,5.27rem);
-        @include bg('flower-end.png');
         position: absolute;
         z-index: 2;
         left:0rem;
