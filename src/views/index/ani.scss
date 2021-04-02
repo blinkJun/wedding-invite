@@ -152,16 +152,16 @@ $gapDuration : .2s;
         transition-delay: .2s;
         transform: translateY(20px);
     }
-    .frame-box-5,
-    .frame-box-6,
-    .frame-box-7{
-        transform: translateX(20px);
+    .frame-box-5{
+        transform: translate(-20px,-20px);
     }
     .frame-box-6{
+        transform: translate(-20px,-20px);
         transition-delay: .2s;
     }
     .frame-box-7{
-        transition-delay: .3s;
+        transform: translate(-20px,-20px);
+        transition-delay: .4s;
     }
     .group-2-title-1,
     .group-2-title-2,
