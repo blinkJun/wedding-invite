@@ -318,6 +318,16 @@ body{
         position: relative;
         z-index: 1;
     }
+    .next{
+        position: absolute;
+        left:0;
+        right:0;
+        bottom:1rem;
+        margin:auto;
+        @include size(.4rem,.3rem);
+        @include bg('next.png');
+        opacity: 0;
+    }
 }
 .frame-middle{
     margin-top:50px;

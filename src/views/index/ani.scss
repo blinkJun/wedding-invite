@@ -193,4 +193,19 @@ $gapDuration : .2s;
     &.fragement-6{
         transform: rotate(180deg)!important;
     }
+    @keyframes nextArrow {
+        0%{
+            opacity: 1;
+            transform: translateY(0);
+        }
+        100%{
+            opacity: 0;
+            transform: translateY(100%);
+        }
+    }
+    &.next{
+        transition: none;
+        opacity: 0;
+        animation: nextArrow 2s $baseDuration*3 ease infinite;
+    }
 }
