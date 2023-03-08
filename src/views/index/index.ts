@@ -3,6 +3,11 @@ import "./ani.scss";
 import axios from 'axios'
 const wx = require('weixin-js-sdk')
 
+declare global {
+    interface window{
+        addEventListener:()=>{}
+    }
+}
 
 // 设置初始化高度
 const bannerElement = document.querySelector('.banner') as HTMLDivElement
@@ -123,7 +128,7 @@ const startElementInSight = ()=>{
             ob.observe(el);
         })
     } else {
-        window.addEventListener('scroll',()=>{
+        (window as any).addEventListener('scroll',()=>{
             allWillAniEl.forEach((el:HTMLElement) => {
                 if (isInSight(el)) {
                     initElAniState(el);

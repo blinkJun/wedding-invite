@@ -438,6 +438,9 @@ body{
 .address-jun,
 .address-sunrise,
 .address-res{
+    >i{
+        filter:blur(5px);
+    }
     >span{
         text-decoration: underline;
     }
