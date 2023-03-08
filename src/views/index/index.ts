@@ -171,8 +171,8 @@ if(query.includes('share')){
 
 wx.ready(function () {      //需在用户可能点击分享按钮前就先调用
     const title = '梁俊&韦晓霞婚礼邀请函'
-    const link = 'http://sunrise.tojike.com/wedding/'
-    const imageUrl = 'http://suncdn.tojike.com/images/HRQ11517.jpg'
+    const link = 'https://blinkjun.github.io/wedding-invite/'
+    const imageUrl = 'https://blinkjun.github.io/wedding-invite/img/HRQ11517.jpg'
     const desc = '欢迎您来参加我们的婚礼'
 
     wx.updateTimelineShareData({ 
